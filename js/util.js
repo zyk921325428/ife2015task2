@@ -114,13 +114,17 @@ return str.replace(/^\s+|\s+$/g,"");
 }
 
 // 使用示例
-var str = '   hi!  ';
+var str = '   hi! 6464 ';
 str = trim(str);
 console.log(str); // 'hi!'
 
 // 实现一个遍历数组的方法，针对数组中每一个元素执行fn函数，并将数组索引和元素作为参数传递
 function each(arr, fn) {
-    
+    for (var i in arr) {
+        if (arr.hasOwnProperty(i)) {
+            fn(arr[i],i);
+        }
+    }
     // your implement
 }
 
@@ -141,7 +145,16 @@ function output(item, index) {
 each(arr, output);  // 0:java, 1:c, 2:php, 3:html
 
 // 获取一个对象里面第一层元素的数量，返回一个整数
-function getObjectLength(obj) { }
+function getObjectLength(obj) { 
+    var i=0;
+    for (const key in obj) {
+        if (obj.hasOwnProperty(key)) {
+i++;
+            
+        }
+    }
+    return i;
+}
 
 // 使用示例
 var obj = {
